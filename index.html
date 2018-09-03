@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>Roger Costa - Web Developer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name"theme-color" content="#ff9900"/>
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,400i,600,600i|IBM+Plex+Sans:400,400i,600,600i" rel="stylesheet">  
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,600i" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+	
+	<div id="app">
+
+	<header class="header-bg" :class="{ active: openedMenu }">
+		<div class="header">		
+			<div class="header-logo">
+				<img src="logo.png" alt="Logo">
+				<!-- <xmp class="header-logo-text"></web developer></xmp> -->
+			</div>
+			<div class="menu-hamburger-btn" v-on:click="openMenu">
+				<div class="menu-hamburger" :class="{ active: openedMenu }">
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="viewport-menu" :class="{ active: openedMenu }">
+		<ul class="menu-list">
+			<li class="menu-list-item">Quem Sou</li>
+			<li class="menu-list-item habilidades">Habilidades</li>
+			<li class="menu-list-item">Portfólio</li>
+			<li class="menu-list-item">Contato</li>
+			<li class="">
+				<ul class="menu-icons">
+					<li class="menu-list-item-rs">Me acompanhe nas redes sociais:</li>
+					<li class="menu-list-item menu-icons"><img src="facebook.svg" alt="Perfíl do Instagram"></li>
+					<li class="menu-list-item menu-icons"><img src="instagram.svg" alt="Perfíl do Instagram"></li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+
+	<!-- <div id="app">{{ mensagem }}</div> -->
+
+
+	<section class="contact-bg">	
+		<div class="contact-container">	
+			<h2 class="section-title" id="contact">Entre em contato...</h2>
+
+			<div class="contact">	
+				<div class="contact-form">	
+					<h3 class="section-subtitles">Utilize o meu formulário</h3>
+					<form action="" class="input-box">
+						<label for="">Nome:</label>
+						<input type="text">		
+						<label for="">E-mail:</label>
+						<input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">		
+						<label for="">Mensagem:</label>
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<button>Enviar</button>
+					</form>
+				</div>
+
+				<div class="contact-infos">	
+					<h3 v-if="redes_sociais.facebook.actived || redes_sociais.instagram.actived" class="section-subtitles">Ou me encontre nas redes sociais</h3>	
+					<ul class="contact-redesSociais">
+						<a v-if="redes_sociais.facebook.actived" :href="redes_sociais.facebook.link" target="a_blank"><li><img src="facebook.svg" alt="Perfíl no Facebook"></li></a>
+						<a v-if="redes_sociais.instagram.actived" :href="redes_sociais.instagram.link" target="a_blank"><li><img src="instagram.svg" alt="Perfíl no Instagram"></li></a>
+						<!-- <a v-if="redes_sociais.instagram.actived" href="email.svg" target="a_blank"><li><img src="email.svg" alt="Perfíl no Instagram"></li></a> -->
+					</ul>
+
+					<h3 class="section-subtitles">Outros formas de contato</h3>
+					<ul class="contact-redesSociais">
+						<a v-if="redes_sociais.instagram.actived" href="email.svg" target="a_blank"><li><img src="email.svg" alt="Perfíl no Instagram"></li></a>
+					</ul>	
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</div>
+
+	<script src="app.js"></script>
+
+</body>
+</html>
